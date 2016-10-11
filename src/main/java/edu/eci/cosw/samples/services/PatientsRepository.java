@@ -23,6 +23,7 @@ public interface PatientsRepository extends JpaRepository<Paciente, PacienteId> 
 //    @Query(value="SELECT * FROM PACIENTES p WHERE id = ?1 AND tipo_id = ?2", nativeQuery = true)
 //    Paciente findByPacienteID(int id, String tipoid);
 
+//    @Query(value="SELECT * FROM PACIENTES p WHERE SIZE(p.consultas) >= ?1", nativeQuery = true)
     @Query("select p from Paciente p where size(p.consultas) >= ?1")
     List<Paciente> findByNConsulta(int n);
 }
