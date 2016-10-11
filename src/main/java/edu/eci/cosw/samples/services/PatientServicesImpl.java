@@ -6,7 +6,7 @@
 package edu.eci.cosw.samples.services;
 
 import edu.eci.cosw.jpa.sample.model.Paciente;
-import edu.eci.cosw.jpa.sample.repository.PatientsRepository;
+import edu.eci.cosw.jpa.sample.model.PacienteId;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,11 +18,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class PatientServicesImpl implements PatientServices{
     
+    @Autowired
     PatientsRepository patientsRepository;
-        
+    
     @Override
-    public Paciente getPatient(int id, String tipoid) throws ServicesException {        
-        return patientsRepository.findByPacienteID(id, tipoid);
+    public Paciente getPatient(int id, String tipoid) throws ServicesException {  
+        
+        return patientsRepository.findOne(new PacienteId(id, tipoid));
+//                patientsRepository.findByPacienteID(id, tipoid);
+//                patientsRepository.findOne(new PacienteId(id, tipoid));
     }
 
     @Override

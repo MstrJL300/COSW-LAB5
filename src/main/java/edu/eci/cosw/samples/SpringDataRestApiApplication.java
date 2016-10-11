@@ -6,11 +6,12 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@EnableJpaRepositories("edu.eci.cosw.jpa.sample.model.PatientsRepository")
-@EntityScan("edu.eci.cosw.jpa.paquete1.sample.model")
+@EnableJpaRepositories("edu.eci.cosw.samples.services")
+@EntityScan("edu.eci.cosw.jpa.sample.model")
+
 public class SpringDataRestApiApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringDataRestApiApplication.class, args);
-	}
+    public static void main(String[] args) {
+            SpringApplication.run(SpringDataRestApiApplication.class, args);
+    }
 }

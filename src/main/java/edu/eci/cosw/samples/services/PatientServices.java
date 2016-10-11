@@ -41,6 +41,5 @@ public interface PatientServices {
      * @return el lista de pacientes que tengan más registradas más de N consultas.
      * @throws ServicesException si se presenta un error interno en la consulta.
      */
-    public List<Paciente> topPatients(int n) throws ServicesException;
-    
+    public List<Paciente> topPatients(int n) throws ServicesException;    
 }

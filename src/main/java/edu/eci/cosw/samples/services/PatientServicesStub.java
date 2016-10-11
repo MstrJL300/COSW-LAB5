@@ -18,7 +18,6 @@ package edu.eci.cosw.samples.services;
 
 import edu.eci.cosw.jpa.sample.model.Paciente;
 import edu.eci.cosw.jpa.sample.model.PacienteId;
-import edu.eci.cosw.jpa.sample.repository.PatientsRepository;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -32,8 +31,6 @@ import org.springframework.stereotype.Service;
 //@Service
 public class PatientServicesStub implements PatientServices{
 
-    @Autowired
-    PatientsRepository patientsRepository;
     @Override
     public Paciente getPatient(int id, String tipoid) {
         return new Paciente(new PacienteId(1, "cc"),"Juan Perez",new Date());
