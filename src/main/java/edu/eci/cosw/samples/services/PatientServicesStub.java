@@ -16,12 +16,11 @@
  */
 package edu.eci.cosw.samples.services;
 
-import edu.eci.cosw.jpa.sample.model.Paciente;
-import edu.eci.cosw.jpa.sample.model.PacienteId;
+import edu.eci.cosw.samples.model.Paciente;
+import edu.eci.cosw.samples.model.PacienteId;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**

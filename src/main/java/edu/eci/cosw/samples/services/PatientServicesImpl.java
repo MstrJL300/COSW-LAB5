@@ -5,8 +5,9 @@
  */
 package edu.eci.cosw.samples.services;
 
-import edu.eci.cosw.jpa.sample.model.Paciente;
-import edu.eci.cosw.jpa.sample.model.PacienteId;
+import edu.eci.cosw.samples.model.Paciente;
+import edu.eci.cosw.samples.model.PacienteId;
+import edu.eci.cosw.samples.persistance.PatientsRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,30 +19,21 @@ import org.springframework.stereotype.Service;
 @Service
 public class PatientServicesImpl implements PatientServices{
     
-    @Autowired
+    @Autowired 
     PatientsRepository patientsRepository;
-    
+
     @Override
-    public Paciente getPatient(int id, String tipoid) throws ServicesException {  
-        
-        return patientsRepository.findOne(new PacienteId(id, tipoid));
-//                patientsRepository.findByPacienteID(id, tipoid);
-//                patientsRepository.findOne(new PacienteId(id, tipoid));
+    public Paciente getPatient(int id, String tipoid) throws ServicesException {
+        Paciente p=patientsRepository.findOne(new PacienteId(id,tipoid));
+        if (p==null){
+            throw new ServicesException("no existe un paciente");
+        }
+        return p;
     }
 
     @Override
     public List<Paciente> topPatients(int n) throws ServicesException {
-        return patientsRepository.findByNConsulta(n);
+        return patientsRepository.topPacientes(n);
     }
-
-//    @Override
-//    public Paciente getPatient(int id, String tipoid) throws ServicesException {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
-//
-//    @Override
-//    public List<Paciente> topPatients(int n) throws ServicesException {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
     
 }
